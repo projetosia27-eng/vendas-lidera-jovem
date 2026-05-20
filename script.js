@@ -1,5 +1,5 @@
 
-document.addEventListener('DOMContentLoaded', () => {
+(function() {
   const checkoutBtns = document.querySelectorAll('.js-checkout-btn');
   const checkoutModal = document.getElementById('checkout-modal');
   const demoModal = document.getElementById('demo-modal');
@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const demoBtn = document.getElementById('js-demo-btn');
-  const demoModal = document.getElementById('demo-modal');
   if (demoModal && demoBtn) {
     demoBtn.addEventListener('click', () => demoModal.style.display = 'flex');
     const closeMod = () => {
@@ -47,5 +46,5 @@ document.addEventListener('DOMContentLoaded', () => {
       if (checkoutModal) checkoutModal.style.display = 'none';
     });
   }
-});
+})();
     
