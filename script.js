@@ -2,8 +2,18 @@
 document.addEventListener('DOMContentLoaded', () => {
   const checkoutBtns = document.querySelectorAll('.js-checkout-btn');
   const checkoutModal = document.getElementById('checkout-modal');
+  const demoModal = document.getElementById('demo-modal');
   if (checkoutModal) {
-    checkoutBtns.forEach(btn => btn.addEventListener('click', () => checkoutModal.style.display = 'flex'));
+    checkoutBtns.forEach(btn => btn.addEventListener('click', () => {
+      checkoutModal.style.display = 'flex';
+      if (demoModal) {
+        demoModal.style.display = 'none';
+        const iframe = demoModal.querySelector('iframe');
+        if (iframe) iframe.src = iframe.src;
+        const video = demoModal.querySelector('video');
+        if (video) video.pause();
+      }
+    }));
     checkoutModal.addEventListener('click', (e) => {
       if (e.target === checkoutModal) checkoutModal.style.display = 'none';
     });
